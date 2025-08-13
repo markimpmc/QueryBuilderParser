@@ -103,7 +103,7 @@ class JoinSupportingQueryBuilderParser extends QueryBuilderParser
              */
             function(Builder $query) use ($subclause) {
 
-                $q = $query->selectRaw(1)
+                $q = $query->selectRaw($subclause['select'] ?? 1)
                     ->from($subclause['to_table'])
                     ->whereRaw($subclause['to_table'].'.'.$subclause['to_col']
                         .' = '
