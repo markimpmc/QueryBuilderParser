@@ -27,7 +27,7 @@ class QueryBuilderParser
     /**
      * @param array $fields a list of all the fields that are allowed to be filtered by the QueryBuilder
      */
-    public function __construct(array $fields = null)
+    public function __construct(?array $fields = null)
     {
         $this->fields = $fields;
     }
@@ -275,7 +275,7 @@ class QueryBuilderParser
      * @return $this
      * @throws \timgws\QBParseException
      */
-    public function clean($field, Callable $callback = null)
+    public function clean($field, ?Callable $callback = null)
     {
         if (isset($this->cleanFieldCallbacks[$field])) {
             throw new QBParseException("Field $field already has a clean callback set.");
